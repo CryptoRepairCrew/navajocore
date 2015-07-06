@@ -67,7 +67,7 @@
   "scripts": {
     "install": "node-gyp rebuild",
     "test": "node browser/build.js -a && node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
-    "coverage": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --reporter spec test",
+    "coverage": "istanbul cover ./node_modules/.bin/_mocha -- --reporter spec test",
     "prepublish": "node browser/build.js -a"
   },
   "dependencies": {
@@ -82,6 +82,7 @@
     "buffers": "=0.1.1",
     "buffertools": "=2.1.2",
     "browserify-buffertools": "git://github.com/maraoz/browserify-buffertools.git",
+    "multi-hashing": "git://github.com/zone117x/node-multi-hashing.git",
     "elliptic": "=0.15.7",
     "hash.js": "=0.3.1",
     "jsrsasign": "=0.0.3",
@@ -124,7 +125,7 @@
     "url": "https://github.com/reddcoin-project/reddcore/issues"
   },
   "homepage": "https://github.com/reddcoin-project/reddcore",
-  "_id": "reddcore@0.1.39",
+  "_id": "reddcore@0.1.40",
   "devDependencies": {
     "browserify": "=3.40.0",
     "chai": "=1.9.1",
@@ -145,5 +146,9 @@
     "request": "2.39.0",
     "sinon": "^1.10.3",
     "uglifyify": "=1.2.3"
-  }
+  },
+  "readme": "Reddcore\n=======\n\n[![Build Status](https://travis-ci.org/bitpay/bitcore.svg?branch=master)](https://travis-ci.org/bitpay/bitcore)\n[![Coverage Status](https://img.shields.io/coveralls/bitpay/bitcore.svg)](https://coveralls.io/r/bitpay/bitcore)\n\nA pure, powerful core for your Reddcoin project.\n\nReddcore is a complete, native interface to the Reddcoin network, and provides the core functionality needed to develop\napps for Reddcoin.\n\n#Principles\n\nReddcoin is a powerful new peer-to-peer platform for the next generation of financial and social technology.\nThe decentralized nature of the Reddcoin network allows for highly resilient Reddcoin infrastructure, and the developer\ncommunity needs reliable, open-source tools to implement Reddcoin apps and services.\n\n**Reddcore unchains developers from fallible, centralized APIs, and provides the tools to interact with the real Reddcoin network.**\n\n#Get Started\n\nReddcore runs on [node](http://nodejs.org/), and can be installed via [npm](https://npmjs.org/):\n\n```\nnpm install reddcore\n```\n\nIt is a collection of objects useful to Reddcoin applications; class-like idioms are enabled via[Soop](https://github.com/bitpay/soop).\nIn most cases, a developer will require the object's class directly. For instance:\n\n```javascript\nvar reddcore = require('reddcore');\nvar Address = reddcore.Address;\nvar Transaction = reddcore.Transaction;\nvar PeerManager = reddcore.PeerManager;\n```\n\n#Examples\n\nExamples are provided [here](examples.md)\nBuild the examples by installing and running gulp:\n\n```\nnpm install -g gulp\ngulp\n```\n\nJavascript files available at [/examples](/examples) folder.\n\n\n#Security\n\nPlease use at your own risk.\n\nReddcore is still under heavy development and not quite ready for \"drop-in\" production use. If you find a security issue,\nplease email ren@reddcoin.com\n\n#Contributing\n\nReddcore needs some developer love. Please send pull requests for bug fixes, code optimization, and ideas for improvement.\n\n#Browser support\n\n## Building the browser bundle\n\nTo build Reddcore full bundle for the browser (this is automatically executed after you run `npm install`):\n\n```\nnode browser/build.js -a\n```\n\nThis will generate a `browser/bundle.js` file which you can include in your HTML to use Reddcore in the browser.\n\n##Example browser usage\n\nFrom example/simple.html\n\n```html\n<!DOCTYPE html>\n<html>\n  <body>\n    <script src=\"../browser/bundle.js\"></script>\n    <script>\n      var reddcore = require('reddcore');\n      var Address = reddcore.Address;\n      var a = new Address('RqAahY1pTk1q417ALF4ScYGLWthphAGaHW');\n      console.log('RqAahY1pTk1q417ALF4ScYGLWthphAGaHW is valid? '+a.isValid());\n    </script>\n  </body>\n</html>\n```\n\nYou can check a more complex usage example at examples/example.html.\n\n## Generating a customized browser bundle\n\nTo build the main Reddcore bundle, run:\n\n```\nnode browser/build.js -m\n```\n\nTo build all features into the Reddcore bundle (which will lead to a large file size), run:\n\n```\nnode browser/build.js -a\n```\n\nTo generate a customized Reddcore bundle, you can specify which submodules you want to include in it with the -s option:\n\n```\nnode browser/build.js -s lib/Transaction,lib/Address\n```\n\nThis will generate a `browser/bundle.js` containing only the Transaction and Address class, with all their dependencies.\nUse this option if you are not using the whole Reddcore library, to optimize the bundle size, script loading time, and general resource usage.\n\n## Tests\n\nRun tests in node:\n\n```\nmocha\n```\n\nOr generate tests in the browser:\n\n```\ngrunt shell\n```\n\nAnd then open test/index.html in your browser.\n\nTo run the code coverage report:\n\n```\nnpm run-script coverage\n```\n\nAnd then open coverage/lcov-report/index.html in your browser.\n\n#License\n\n**Bitcore Code released under [the MIT license](https://github.com/bitpay/bitcore/blob/master/LICENSE).**\n\nCopyright 2013-2014 BitPay, Inc. Bitcore is a trademark maintained by BitPay, Inc.\n\n[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/bitpay/bitcore/trend.png)](https://bitdeli.com/free \"Bitdeli Badge\")\n",
+  "_shasum": "ff75d78358d5872d4e9bb30a31351bce0ca6467c",
+  "_resolved": "git://github.com/reddcoin-project/reddcore.git#db07e2a36e11168593f43d05f3a8ef5d80da9b78",
+  "_from": "reddcore@git://github.com/reddcoin-project/reddcore.git"
 }

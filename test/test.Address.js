@@ -14,21 +14,21 @@ describe('Address', function() {
     should.exist(Address);
   });
   it('should be able to create instance', function() {
-    var a = new Address('1KfyjCgBSMsLqiCbakfSdeoBUqMqLUiu3T');
+    var a = new Address('sJP2TfNQoiWGeyDczmJ2zJzVvChbBH37Tn');
     should.exist(a);
   });
   it('should be able to transform to string', function() {
-    var a = new Address('1GfGL3iLTfX43KSCd95WhMi4bgU36qjzC1');
+    var a = new Address('sJP2TfNQoiWGeyDczmJ2zJzVvChbBH37Tn');
     a.toString.bind(a).should.not.throw();
-    a.toString().should.equal('1GfGL3iLTfX43KSCd95WhMi4bgU36qjzC1');
+    a.toString().should.equal('sJP2TfNQoiWGeyDczmJ2zJzVvChbBH37Tn');
   });
   var data = [
-    ['1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa', true],
+    ['sJP2TfNQoiWGeyDczmJ2zJzVvChbBH37Tn', true],
     ['11111111111111111111111111122222234', false], // totally invalid
-    ['32QBdjycLwbDTuGafUwaU5p5GxzSLPYoF6', true],
-    ['1Q1pE5vPGEEMqRcVRMbtBK842Y6Pzo6nK9', true],
+    ['sJP2TfNQoiWGeyDczmJ2zJzVvChbBH37Tn', true],
+    ['sJP2TfNQoiWGeyDczmJ2zJzVvChbBH37Tn', true],
     ['1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNb', false], //bad checksum ... thanks @wtogami
-    ['1AGNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW62i', true],
+    ['sJP2TfNQoiWGeyDczmJ2zJzVvChbBH37Tn', true],
     ['1AGNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW600', false], // bad checksum
     ['1AGNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW620', false], // bad checksum
     ['1ANNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW62i', false], // data changed, original checksum.

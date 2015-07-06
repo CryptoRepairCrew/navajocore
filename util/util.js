@@ -4,9 +4,15 @@ var Binary = require('binary');
 var Put = require('bufferput');
 var buffertools = require('buffertools');
 var node_scrypt = require('scryptsy').scrypt;
+var multiHashing = require('multi-hashing');
+
 var sjcl = require('../lib/sjcl');
 if (process.browser) {
   var hashjs = require('hash.js');
+}
+
+var x13 = exports.x13 = function(data) {
+  return multiHashing['x13'](data);
 }
 
 var sha256 = exports.sha256 = function(data) {
